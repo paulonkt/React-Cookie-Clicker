@@ -1,0 +1,48 @@
+.App {
+  
+}
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+.leftCol {
+    padding: 0 20px;
+    background-color: #e9e9e9;
+}
+.centerCol {
+    padding: 0 20px;
+    background-color: #e9e9e9;
+}
+.rightCol {
+    padding: 0 20px;
+    background-color: #e9e9e9;
+}
+.guitar {
+    max-height: 500px;
+    cursor: pointer;
+}
+.note {
+    max-height: 20px;
+}
+.showItems {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    height: 100px;
+    width: 100%;
+    background-color: beige;
+}
+.items {
+    height: 50px;
+    padding: 0 4px;
+}
+.btnBuy {
+    background-color: #4CAF50;
+    width: 100%;
+}
+.btnSell {
+    background-color: #af574c;
+    width: 100%;
+}
