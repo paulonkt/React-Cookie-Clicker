@@ -11,11 +11,11 @@ const PurchaseButton = (props) => {
 
     const name = purchasableItems[props.index].name;
     const qty = purchasableItems[props.index].qty;
-    const notePct = purchasableItems[props.index].note_pct;
+    const noteInc = purchasableItems[props.index].note_inc;
     
     var buyPrice =  purchasableItems[props.index].buy_price;
     var sellPrice = purchasableItems[props.index].sell_price;
-    var cps = purchasableItems[props.index].cps;
+    /* var cps = purchasableItems[props.index].cps; */
 
     let button = 
         <button 
@@ -26,7 +26,7 @@ const PurchaseButton = (props) => {
                 try {
                     await dispatch(buyItem(props.id))
                     await dispatch(decreaseNotes(buyPrice))
-                    await dispatch(increaseActualNotes(notePct))
+                    await dispatch(increaseActualNotes(noteInc))
                 } catch (error) {
                     console.log(error);
                 }
@@ -42,7 +42,7 @@ const PurchaseButton = (props) => {
                 try {
                     await dispatch(sellItem(props.id))
                     await dispatch(increaseNotes(sellPrice))
-                    await dispatch(decreaseActualNotes(notePct))
+                    await dispatch(decreaseActualNotes(noteInc))
                 } catch (error) {
                     console.log(error);
                 }

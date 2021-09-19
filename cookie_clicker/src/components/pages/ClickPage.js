@@ -28,7 +28,7 @@ const ClickPage = () => {
         <div className="container">
             <div className="row my-4">
                 <div className="col d-flex justify-content-center">
-                    <p>You have {counter.toFixed(2)} {counter > 0 ? 'notes' : 'note'}.</p>
+                    <p>You have {counter} {counter > 0 ? 'notes' : 'note'}.</p>
                 </div>
             </div>
             <div className="row">
@@ -43,7 +43,7 @@ const ClickPage = () => {
             </div>
             <div className="row my-4">
                 <div className="col d-flex justify-content-center">
-                    <p>each click provides {notesPerClick.toFixed(2)} notes.</p>
+                    <p>each click provides {notesPerClick} notes.</p>
                 </div>
             </div>
         </div>

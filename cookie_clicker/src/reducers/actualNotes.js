@@ -3,7 +3,7 @@ const actualNotesReducer = (state = 0, action) => {
         case 'SET_ACTUAL':
             return action.payload
         case 'INCREASE_ACTUAL':
-            return state + (state * action.payload)
+            return state + action.payload
         case 'DECREASE_ACTUAL':
             return state - action.payload
         default:

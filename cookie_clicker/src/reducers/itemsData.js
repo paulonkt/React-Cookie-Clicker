@@ -1,10 +1,10 @@
 const variation = 2;
 
 const INIT_STATE = [
-    {id: 1, name: 'Microphone', img:'mic', buy_price: 10, sell_price: 8, earns: 2, note_pct: 0.10, qty: 0 },
-    {id: 2, name: 'Bass', img:'bass', buy_price: 20, sell_price: 16, earns: 4, note_pct: 0.20, qty: 0 },
-    {id: 3, name: 'Drums', img:'drums', buy_price: 30, sell_price: 24, earns: 6, note_pct: 0.30, qty: 0 },
-    {id: 4, name: 'Piano', img:'piano', buy_price: 40, sell_price: 30, earns: 8, note_pct: 0.40, qty: 0 }
+    {id: 1, name: 'Microphone', img:'mic', buy_price: 10, sell_price: 8, earns: 2, note_inc: 1, qty: 0 },
+    {id: 2, name: 'Bass', img:'bass', buy_price: 20, sell_price: 16, earns: 4, note_inc: 2, qty: 0 },
+    {id: 3, name: 'Drums', img:'drums', buy_price: 30, sell_price: 24, earns: 6, note_inc: 3, qty: 0 },
+    {id: 4, name: 'Piano', img:'piano', buy_price: 40, sell_price: 30, earns: 8, note_inc: 4, qty: 0 }
 ]
 
 const itemsDataReducer = (state = INIT_STATE, action) => {
