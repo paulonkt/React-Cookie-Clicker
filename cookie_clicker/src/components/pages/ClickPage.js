@@ -5,7 +5,7 @@ import { increaseNotes, setActualNotes } from '../../actions';
 
 const ClickPage = () => {
     const counter = useSelector(state => state.notesCount);
-    const purchasableItems = useSelector(state => state.itemsData);
+    //const purchasableItems = useSelector(state => state.itemsData);
     const dispatch = useDispatch();
 
     let notes = 0
