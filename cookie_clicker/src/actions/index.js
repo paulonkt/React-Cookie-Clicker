@@ -10,6 +10,24 @@ export const decreaseNotes = (value) => {
         payload: value
     }
 }
+export const setActualNotes = (value) => {
+    return {
+        type: 'SET_ACTUAL',
+        payload: value
+    }
+}
+export const increaseActualNotes = (value) => {
+    return {
+        type: 'INCREASE_ACTUAL',
+        payload: value
+    }
+}
+export const decreaseActualNotes = (value) => {
+    return {
+        type: 'DECREASE_ACTUAL',
+        payload: value
+    }
+}
 export const changeOption = () => {
     return {
         type: 'BUYING'

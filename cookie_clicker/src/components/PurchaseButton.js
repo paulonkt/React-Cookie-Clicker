@@ -1,5 +1,5 @@
 import React from 'react';
-import { buyItem, decreaseNotes, increaseNotes, sellItem } from '../actions'
+import { buyItem, decreaseNotes, increaseNotes, sellItem, increaseActualNotes, decreaseActualNotes } from '../actions'
 import { useDispatch, useSelector } from 'react-redux';
 import note from '../assets/img/note.png';
 
@@ -11,6 +11,7 @@ const PurchaseButton = (props) => {
 
     const name = purchasableItems[props.index].name;
     const qty = purchasableItems[props.index].qty;
+    const notePct = purchasableItems[props.index].note_pct;
     
     var buyPrice =  purchasableItems[props.index].buy_price;
     var sellPrice = purchasableItems[props.index].sell_price;
@@ -21,11 +22,15 @@ const PurchaseButton = (props) => {
             disabled={counterNotes >= buyPrice ? false : true }
             className="btnBuy"
             key={props.id.toString()}
-            onClick={() => [
-                dispatch(buyItem(props.id)),
-                dispatch(decreaseNotes(buyPrice))
-                //.then(() => dispatch(decreaseNotes(value)))
-            ]}
+            onClick={async () => {
+                try {
+                    await dispatch(buyItem(props.id))
+                    await dispatch(decreaseNotes(buyPrice))
+                    await dispatch(increaseActualNotes(notePct))
+                } catch (error) {
+                    console.log(error);
+                }
+            }}
         >{qty} - {name}</button>;
     if(!isBuying) {
         button = 
@@ -33,12 +38,15 @@ const PurchaseButton = (props) => {
             disabled={qty > 0 ? false : true }
             className="btnSell"
             key={props.id.toString()}
-            onClick={() => [
-                dispatch(sellItem(props.id)),
-                dispatch(increaseNotes(sellPrice))
-                //.then(() => dispatch(increaseNotes(value)))
-            ]
-            }
+            onClick={async () => {
+                try {
+                    await dispatch(sellItem(props.id))
+                    await dispatch(increaseNotes(sellPrice))
+                    await dispatch(decreaseActualNotes(notePct))
+                } catch (error) {
+                    console.log(error);
+                }
+            }}
         >{qty} - {name}</button>;
     }
     return (
@@ -47,7 +55,7 @@ const PurchaseButton = (props) => {
             <p className="d-flex align-items-center mt-2">
                 <img src={note} className="note" alt="Your notes"/>&nbsp;&nbsp;
                 {isBuying ? buyPrice:sellPrice}&nbsp;&nbsp;
-                cps: {cps}
+                {/* cps: {cps} */}
             </p>
         </div>
     );
